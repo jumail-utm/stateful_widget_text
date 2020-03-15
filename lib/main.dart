@@ -5,18 +5,31 @@ void main() => runApp(MaterialApp(
       home: Home(),
     ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  Color _color = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Hello World'),
+        child: Text(
+          'Hello World',
+          style: TextStyle(color: _color),
+        ),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton.extended(
-            onPressed: () {},
+            onPressed: () {
+              _color = Colors.red;
+              setState(() {});
+            },
             label: Text('Red'),
             backgroundColor: Colors.red,
           ),
