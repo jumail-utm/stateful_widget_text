@@ -15,13 +15,20 @@ class _HomeState extends State<Home> {
   get color => _color;
   set color(value) => setState(() => _color = value);
 
+  double _size = 50.0;
+  get size => _size;
+  set size(value) => setState(() => _size = value);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Text(
           'Hello World',
-          style: TextStyle(color: _color),
+          style: TextStyle(
+            color: _color,
+            fontSize: size,
+          ),
         ),
       ),
       floatingActionButton: Row(
