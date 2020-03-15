@@ -12,6 +12,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Color _color = Colors.black;
+  get color => _color;
+  set color(value) => setState(() => _color = value);
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +28,12 @@ class _HomeState extends State<Home> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton.extended(
-            onPressed: () {
-              _color = Colors.red;
-              setState(() {});
-            },
+            onPressed: () => color = Colors.red,
             label: Text('Red'),
             backgroundColor: Colors.red,
           ),
           FloatingActionButton.extended(
-            onPressed: () {},
+            onPressed: () => color = Colors.blue,
             label: Text('Blue'),
             backgroundColor: Colors.blue,
           ),
