@@ -46,6 +46,15 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+      bottomSheet: SizedBox(
+        height: 100,
+        child: Slider(
+          value: size,
+          min: 10,
+          max: 100,
+          onChanged: (value) => size = value,
+        ),
+      ),
     );
   }
 }
