@@ -34,16 +34,8 @@ class _HomeState extends State<Home> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          FloatingActionButton.extended(
-            onPressed: () => color = Colors.red,
-            label: Text('Red'),
-            backgroundColor: Colors.red,
-          ),
-          FloatingActionButton.extended(
-            onPressed: () => color = Colors.blue,
-            label: Text('Blue'),
-            backgroundColor: Colors.blue,
-          ),
+          _buildButton('Red', Colors.red),
+          _buildButton('Blue', Colors.blue),
         ],
       ),
       bottomSheet: SizedBox(
@@ -55,6 +47,14 @@ class _HomeState extends State<Home> {
           onChanged: (value) => size = value,
         ),
       ),
+    );
+  }
+
+  FloatingActionButton _buildButton(String title, Color col) {
+    return FloatingActionButton.extended(
+      onPressed: () => color = col,
+      label: Text(title),
+      backgroundColor: col,
     );
   }
 }
