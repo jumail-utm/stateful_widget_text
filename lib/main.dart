@@ -34,8 +34,8 @@ class _HomeState extends State<Home> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          _buildButton('Red', Colors.red),
-          _buildButton('Blue', Colors.blue),
+          Button(this, 'Red', Colors.red),
+          Button(this, 'Blue', Colors.blue),
         ],
       ),
       bottomSheet: SizedBox(
@@ -55,6 +55,23 @@ class _HomeState extends State<Home> {
       onPressed: () => color = col,
       label: Text(title),
       backgroundColor: col,
+    );
+  }
+}
+
+class Button extends StatelessWidget {
+  final state;
+  final color;
+  final title;
+
+  const Button(this.state, this.title, this.color);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.extended(
+      onPressed: () => state.color = color,
+      label: Text(title),
+      backgroundColor: color,
     );
   }
 }
